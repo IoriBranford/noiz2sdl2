@@ -4,18 +4,18 @@
 NAME   = noiz2sa
 O      = o
 RM     = rm -f
-CC     = gcc
-CXX    = g++
+CC     ?= gcc
+CXX    ?= g++
 
 PROG        = $(NAME).exe
 
 DEFAULT_CFLAGS = `sdl-config --cflags`
-LDFLAGS        = `sdl-config --libs` -L. -lmingw32 -lmingwex -lSDL_mixer -lbulletml -mwindows -lstdc++
+LDFLAGS        = `sdl-config --libs` -L. -L./bulletml/bin/Release -lmingw32 -lmingwex -lSDL_mixer -lbulletml -mwindows -lstdc++
 
 MORE_CFLAGS = -O3
 
 CFLAGS  = $(DEFAULT_CFLAGS) $(MORE_CFLAGS)
-CPPFLAGS  = $(DEFAULT_CFLAGS) $(MORE_CFLAGS) -I./bulletml/
+CPPFLAGS  = $(DEFAULT_CFLAGS) $(MORE_CFLAGS) -I./bulletml/ -I./bulletml/include/
 
 OBJS =	$(NAME).$(O) ship.$(O) shot.$(O) frag.$(O) bonus.$(O) \
 	foe.$(O) foecommand.$(O) barragemanager.$(O) attractmanager.$(O) \
