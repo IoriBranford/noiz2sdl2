@@ -37,6 +37,8 @@
 #define DEFAULT_BRIGHTNESS 224
 
 extern int windowMode;
+extern int scaleLinear;
+extern int scaleInteger;
 extern LayerBit *l1buf, *l2buf;
 extern LayerBit *buf;
 extern LayerBit *lpbuf, *rpbuf;
@@ -45,7 +47,7 @@ extern SDL_Joystick *stick;
 extern int buttonReversed;
 extern int brightness;
 
-void initSDL(int window);
+void initSDL(int windowed, int linear, int integer);
 void closeSDL();
 void blendScreen();
 void flipScreen();

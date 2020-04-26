@@ -236,6 +236,10 @@ static void parseArgs(int argc, char *argv[]) {
       noSound = 1;
     } else if ( strcmp(argv[i], "-window") == 0 ) {
       windowMode = 1;
+    } else if ( strcmp(argv[i], "-scalelinear") == 0 ) {
+      scaleLinear = 1;
+    } else if ( strcmp(argv[i], "-scaleinteger") == 0 ) {
+      scaleInteger = 1;
     } else if ( strcmp(argv[i], "-reverse") == 0 ) {
       buttonReversed = 1;
     } else if ( (strcmp(argv[i], "-brightness") == 0) && argv[i+1] ) {
@@ -271,7 +275,7 @@ int main(int argc, char *argv[]) {
   parseArgs(argc, argv);
 
   initDegutil();
-  initSDL(windowMode);
+  initSDL(windowMode, scaleLinear, scaleInteger);
   if ( !noSound ) initSound();
   initFirst();
   initTitle();

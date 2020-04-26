@@ -24,6 +24,8 @@
 #include "attractmanager.h"
 
 int windowMode = 0;
+int scaleLinear = 0;
+int scaleInteger = 0;
 int brightness = DEFAULT_BRIGHTNESS;
 
 static SDL_Window *window;
@@ -125,7 +127,7 @@ static void makeSmokeBuf() {
   }
 }
 
-void initSDL(int windowed) {
+void initSDL(int windowed, int linear, int integer) {
   Uint8 videoBpp;
   Uint32 videoFlags;
   SDL_PixelFormat *pfrm;
@@ -146,6 +148,8 @@ void initSDL(int windowed) {
     exit(1);
   }
   SDL_RenderSetLogicalSize(renderer, SCREEN_WIDTH, SCREEN_HEIGHT);
+  if (linear) SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
+  if (integer) SDL_RenderSetIntegerScale(renderer, SDL_TRUE);
   screenRect.x = screenRect.y = 0;
   screenRect.w = SCREEN_WIDTH; screenRect.h = SCREEN_HEIGHT;
   SDL_RendererInfo rendererInfo;
