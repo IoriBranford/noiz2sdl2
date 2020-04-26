@@ -278,9 +278,9 @@ int main(int argc, char *argv[]) {
 
   while ( !done ) {
     SDL_PollEvent(&event);
-    keys = SDL_GetKeyState(NULL);
-    if ( keys[SDLK_ESCAPE] == SDL_PRESSED || event.type == SDL_QUIT ) done = 1;
-    if ( keys[SDLK_p] == SDL_PRESSED ) {
+    keys = SDL_GetKeyboardState(NULL);
+    if ( keys[SDL_SCANCODE_ESCAPE] == SDL_PRESSED || event.type == SDL_QUIT ) done = 1;
+    if ( keys[SDL_SCANCODE_P] == SDL_PRESSED ) {
       if ( !pPrsd ) {
 	if ( status == IN_GAME ) {
 	  status = PAUSE;
@@ -318,4 +318,5 @@ int main(int argc, char *argv[]) {
     flipScreen();
   }
   quitLast();
+  return 0;
 }
