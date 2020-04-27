@@ -14,15 +14,15 @@ noiz2sa shooting game with some updates for modern systems.
 
 ## Compiling
 
-Install SDL2 and SDL2_mixer dev libraries and premake4. Then
+Install SDL2 and SDL2_mixer dev libraries and premake5. Then
 
 ```bash
 git clone --recurse-submodules https://github.com/ioribranford/noiz2sdl2.git
 cd noiz2sdl2/src
 cd bulletml
-cp premake.lua premake4.lua
-premake4 gmake
-make -j
+cp premake.lua premake5.lua
+premake5 gmake
+config=release make -j
 cd ..
 make -j
 cp noiz2sa.exe ..
