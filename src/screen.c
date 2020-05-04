@@ -155,7 +155,7 @@ void initSDL(int windowed, int linear, int integer) {
   SDL_RendererInfo rendererInfo;
   SDL_GetRendererInfo(renderer, &rendererInfo);
   for (Uint32 i = 0; i < rendererInfo.num_texture_formats; ++i) {
-	  SDL_PixelFormatEnum fmt = rendererInfo.texture_formats[i];
+	  int fmt = rendererInfo.texture_formats[i];
 	  if (SDL_BITSPERPIXEL(fmt) == 32) {
 		  textureFormat = fmt;
 		  break;
