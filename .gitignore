@@ -1,5 +1,7 @@
 *.exe
 *.dll
+*.prf
+stdout.txt
 *~
 *.swp
 *.o
