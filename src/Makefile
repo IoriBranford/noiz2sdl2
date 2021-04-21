@@ -22,8 +22,9 @@ OBJS =	$(NAME).$(O) ship.$(O) shot.$(O) frag.$(O) bonus.$(O) \
 	background.$(O) letterrender.$(O) \
 	screen.$(O) clrtbl.$(O) vector.$(O) degutil.$(O) rand.$(O) soundmanager.$(O)
 
+all: $(PROG)
+
 ifeq ($(OS),Windows_NT)
-PROG += .exe
 LDFLAGS += -lmingw32 -lmingwex -mwindows
 OBJS += $(NAME)_res.$(O)
 
