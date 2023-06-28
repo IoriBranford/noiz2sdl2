@@ -5,3 +5,5 @@ stdout.txt
 *~
 *.swp
 *.o
+./noiz2sa
+src/noiz2sa
